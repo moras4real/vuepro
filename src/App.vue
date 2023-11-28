@@ -1,26 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <img alt="Vue twitter1" src="./assets/twitter1.png">   -->
+  <!-- <LandingPage/> -->
+  
+    <router-view/> 
+ 
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+// import LandingPage from './components/LandingPage.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // HelloWorld
+    // LandingPage
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
