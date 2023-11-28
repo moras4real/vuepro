@@ -242,9 +242,8 @@
           <div v-for="image in post.images" :key="image"   class="mb-5">
             <img :src="`http://localhost:8000/storage/` + image" alt="" :class="{ fimg }">
           </div>
-        </div>
+        </div>  
       
-
       </div>
     </form>
 

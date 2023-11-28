@@ -118,7 +118,7 @@ export default {
         password: { required, min: minLength(6), max: maxLength(10) },
         // month: {required},
         // day: {required},
-        // year: {required},
+        // year: {required},      
 
       }
     }
