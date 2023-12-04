@@ -36,7 +36,7 @@
       </div>
 
       <div class="my-2">
-        <input type="password" placeholder="Password" class="form-control border-primary"
+        <input type="text" placeholder="Password" class="form-control border-primary"
           v-model="v$.form.password.$model" />
         <div v-for="(error, index) in v$.form.password.$errors" :key="index">
           <span class="text-danger text-sm"> {{ error.$message }}</span>
@@ -132,6 +132,7 @@ export default {
         axios.post("http://localhost:8000/api/register", this.form).then((response) => {
           if (response.data.status) {
             this.message = response.data.message
+            this.$router.push('/signin')
             console.log(this.message)
           } else {
             this.errors = response.data.errors

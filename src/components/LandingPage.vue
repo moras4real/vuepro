@@ -65,9 +65,10 @@
       </div>
     </div>
   </div>
+  
   <!-- ********************************************************************* -->
   <div class="container-fluid d-flex">
-    <div class="col-7 mt-2 ">
+    <div class="col-7 mt-2 image-container ">
       <img alt="Vue twitter1" src="../assets/twitter1.png" width="800">
     </div>
     <div class="col">
@@ -88,17 +89,18 @@
 
 
       <p :class="{ font4 }">By signing up, you agree to the <a href="" :class="{ font5 }">Terms of Service </a>and <a
-          href="" :class="{ font5 }">Privacy <p> </p>Policy</a>, including <a href="" :class="{ font5 }">Cookie Use</a>.
+          href="" :class="{ font5 }"> <p> </p>Privacy Policy</a>, including <a href="" :class="{ font5 }">Cookie Use</a>.
       </p>
       <h5>Already have an account?</h5>
-      <button :class="{ btn4 }" class="btn-rounded rounded-5 "><router-link :to="{ name: 'Signin' }"
+      <button :class="{ btn4 }" class="btn-rounded rounded-5 mb-3 "><router-link :to="{ name: 'Signin' }"
           :class="{ btn4 }">Sign
           in</router-link></button>
 
     </div>
   </div>
-
-  <div class="container-fluid d-flex gap-3">
+  
+  
+  <div class="container-fluid d-flex gap-3 container-links">
     <a href="" class="text-secondary" :class="{ font5 }">About</a>
     <a href="" class="text-secondary" :class="{ font5 }">Download the X app</a>
     <a href="" class="text-secondary" :class="{ font5 }">Help Center</a>
@@ -192,6 +194,7 @@ export default {
           if (response.data.status) {
             this.message = response.data.message
             console.log(this.message)
+            this.$router.push('/signin')
           } else {
             this.errors = response.data.errors
             console.log(this.errors);
@@ -222,12 +225,18 @@ export default {
   margin-top: 7px;
 }
 
-.btn1 {
+.btn1,
+.btn2,
+.btn3,
+.btn4 {
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 80px;
-  padding-right: 80px;
   border-color: rgb(162, 162, 181);
+}
+
+.btn1 {  
+  padding-left: 80px;
+  padding-right: 80px; 
   font-weight: 600;
   background-color: white;
 }
@@ -236,12 +245,9 @@ export default {
   background-color: rgb(245, 247, 248);
 }
 
-.btn2 {
-  padding-top: 10px;
-  padding-bottom: 10px;
+.btn2 { 
   padding-left: 85px;
-  padding-right: 85px;
-  border-color: rgb(162, 162, 181);
+  padding-right: 85px; 
   font-weight: 700;
   background-color: white;
 }
@@ -250,12 +256,9 @@ export default {
   background-color: rgb(238, 232, 232);
 }
 
-.btn3 {
-  padding-top: 10px;
-  padding-bottom: 10px;
+.btn3 { 
   padding-left: 110px;
-  padding-right: 110px;
-  border-color: rgb(162, 162, 181);
+  padding-right: 110px;  
   font-weight: 700;
   background-color: rgb(82, 171, 231);
   color: white;
@@ -282,11 +285,8 @@ export default {
 }
 
 .btn4 {
-  padding-top: 10px;
-  padding-bottom: 10px;
   padding-left: 72px;
-  padding-right: 72px;
-  border-color: rgb(162, 162, 181);
+  padding-right: 72px;  
   font-weight: 700;
   background-color: white;
   color: rgb(82, 171, 231);
@@ -300,5 +300,60 @@ export default {
 
 a:hover {
   text-underline-position: below;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .font1 {
+    font-size: 60px;
+    margin-top: 40px;
+  }
+
+  .font3 {
+    padding-left: 0;
+  }
+
+  .btn1,
+  .btn2,
+  .btn3,
+  .btn4 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+
+.container-links a {
+  margin-right: 0px;
+}
+
+@media only screen and (max-width: 768px) {
+  .container-links {
+    flex-direction: column;
+  }
+
+  .container-links a {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+
+.image-container {
+  max-width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .image-container {
+    /* max-width: 5%; */
+    display: none;
+  }
+}
+
+
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  .image-container {
+    max-width: 80%;
+  }
 }
 </style>

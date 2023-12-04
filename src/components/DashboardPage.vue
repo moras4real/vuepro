@@ -81,7 +81,7 @@
 
   <!-- ***************************************************************************************************************************** -->
 
-  <div class="container d-flex bg-primar">
+  <div class="container d-flex bg-primar" :class="{ fflex }">
     <div class="col- bg-dar">
       <div>
         <button class="btn btn-rounded rounded-5 ps-3 pe-3" :class="{ bt1 }">
@@ -174,7 +174,7 @@
 
     <form @submit.prevent="handleSubmit" :class="{ scrollable }" :style="{ maxHeight: dynamicMaxHeight + 'px' }" >
       <div class="col-7 mx-auto my-2 shadow-sm row">
-        <div class="d-flex">
+        <div class="d-flex"  >
           <div>
             <button class="btn btn ps-5 pe-5" :class="{ bt1 }">
               <h5 class="ps-3 pt-2 text-dark ">For you</h5>
@@ -203,7 +203,7 @@
         <label for="" class="text-white ">Upload Files Here</label>
         <input type="file" id="fileInput" class="form-control w-50" @change="handleFileChange" multiple
           style="display: none;" />
-        <div class="d-flex gap-5">
+        <div class="d-flex gap-5"  >
           <div class="form-group mb-3 pe-5 d-flex gap-3">
             <img alt="view img" src="../assets/1media.png" width="28" height="24"
               onclick="document.getElementById('fileInput').click();" style="cursor: arrow;">
@@ -317,6 +317,8 @@ export default {
       fimg: true,
       bt1: true,
       scrollable: true,
+      fflex: true,
+      container: true,
       form: {
         title: '',
         comment: '',
@@ -409,7 +411,10 @@ export default {
 }
 </script>
 
-<style>.fimg {
+<style>
+
+
+.fimg {
   width: 400px;
   height: 400px;
 }
@@ -424,4 +429,54 @@ export default {
 
 .scrollable {
   overflow-y: auto;
-}</style>
+}
+
+
+.container {   
+    padding: 20px;
+    display: flex;
+  }
+
+  .fflex {
+    display: flex;   
+  }
+
+  h3.text-secondary {
+    font-size: 24px; 
+    color: #333;     
+  }
+
+  @media screen and (max-width: 768px) {
+    .container {
+      flex-direction: column;    
+    }
+
+    .fflex {
+      display: none;     
+    }
+
+    .fimg {    
+    width: 100%; 
+    height: auto; 
+    margin-bottom: 1rem;
+  }
+
+  h3.text-secondary {
+      font-size: 14px;
+    }
+  }
+
+  
+
+  @media screen and (max-width: 1000px) {
+    .container {
+      flex-direction: column;    
+    }
+
+    .fflex {
+      display: none;
+     
+    }
+  }
+
+</style>

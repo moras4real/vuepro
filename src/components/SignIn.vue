@@ -1,6 +1,8 @@
 <template>
-  <div class="col-4 mx-auto">
+  <div class="col-4 mx-auto p-3">
     <h5 :class="{ font1 }">Sign in to X</h5>
+
+    <!-- <div class="text-center alert" :class="{ success: message, danger: !message }">{{ message }}</div> -->
 
     <div class="text-center alert alert-success{{message ? 'success' : 'danger'}}">{{ message }}</div>
 
@@ -32,7 +34,7 @@
       </div>
 
       <button type="submit" :disabled="v$.form.$invalid"
-        class="btn btn-md bg-info text-light text-center px-2 w-50">Login-In</button>
+        class="btn btn-md bg-info text-light text-center px-2 w-100">Login-In</button>
     </form>
 
   </div>
@@ -47,8 +49,17 @@ export default {
 
 
   mounted() {
-    console.log("Signin has been mounted")
+    console.log("Signin has been mounted");
+    // this.$router.go();
   },
+  
+
+//   beforeRouteEnter(to, from, next) {  ?  
+//     next(vm => {
+//         vm.$router.go();
+//     });
+// },
+
 
   setup() {
     return { v$: useValidate() }
@@ -87,8 +98,8 @@ export default {
     handleSubmit() {
       // console.log(this.form)  
       if (this.v$.form.$invalid) {
-        console.log("Form is invalid")
-      } else {
+        console.log("Form is invalid");       
+      }else {
         axios.post("http://localhost:8000/api/login", this.form).then((response) => {
           // console.log(res)
           if (response.data.status) {
@@ -111,4 +122,14 @@ export default {
 }
 </script>
 
-<style></style>
+<style >
+@media screen and (max-width: 768px) {
+  .col-4 {
+    width: 100%;       
+  }
+
+  h5 {
+    font-size: small;
+  }
+}
+</style>
