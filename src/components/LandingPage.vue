@@ -194,6 +194,10 @@ export default {
           if (response.data.status) {
             this.message = response.data.message
             console.log(this.message)
+            const closeButton = document.querySelector('.btn-close');
+            if (closeButton) {
+              closeButton.click();
+            }
             this.$router.push('/signin')
           } else {
             this.errors = response.data.errors
@@ -327,7 +331,18 @@ a:hover {
   margin-right: 0px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px)  {
+  .container-links {
+    flex-direction: column;
+  }
+
+  .container-links a {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 992px) {
   .container-links {
     flex-direction: column;
   }
@@ -353,7 +368,8 @@ a:hover {
 
 @media only screen and (min-width: 769px) and (max-width: 992px) {
   .image-container {
-    max-width: 80%;
+    /* max-width: 80%; */
+    display: none;
   }
 }
 </style>
